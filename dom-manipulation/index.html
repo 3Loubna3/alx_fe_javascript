@@ -68,6 +68,13 @@
             border-radius: 4px;
             font-size: 16px;
         }
+        #syncButton {
+            background-color: #f39c12;
+            margin-top: 20px;
+        }
+        #syncButton:hover {
+            background-color: #e67e22;
+        }
     </style>
 </head>
 <body>
@@ -81,6 +88,7 @@
         <p id="quoteCategory">Category: <span id="categoryText">General</span></p>
     </div>
     <button id="newQuote">Show New Quote</button>
+    <button id="syncButton">Sync with Server</button>
 
     <div id="quoteForm">
         <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
