@@ -60,10 +60,22 @@
             margin-top: 10px;
             font-size: 16px;
         }
+        #categoryFilter {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
     <h1>Dynamic Quote Generator</h1>
+    <select id="categoryFilter" onchange="filterQuotes()">
+        <option value="all">All Categories</option>
+        <!-- Categories will be populated dynamically -->
+    </select>
     <div id="quoteDisplay">
         <p id="quoteText">"Your inspirational quote will appear here."</p>
         <p id="quoteCategory">Category: <span id="categoryText">General</span></p>
