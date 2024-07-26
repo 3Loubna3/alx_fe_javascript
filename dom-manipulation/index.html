@@ -56,6 +56,10 @@
         #quoteForm {
             margin-top: 20px;
         }
+        input[type="file"] {
+            margin-top: 10px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -71,6 +75,9 @@
         <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
         <button onclick="addQuote()">Add Quote</button>
     </div>
+
+    <button id="exportJson" onclick="exportToJsonFile()">Export Quotes to JSON</button>
+    <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
 
     <script src="script.js"></script>
 </body>
