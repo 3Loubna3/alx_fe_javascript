@@ -1,104 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Quote Generator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f4f4f9;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        #quoteDisplay {
-            margin: 20px 0;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        #quoteCategory {
-            margin-top: 10px;
-            color: #666;
-        }
-        button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 5px 0;
-            border: none;
-            border-radius: 4px;
-            background-color: #5b5fc7;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #494eb2;
-        }
-        input[type="text"] {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        input[type="text"]:focus {
-            border-color: #5b5fc7;
-            outline: none;
-        }
-        #quoteForm {
-            margin-top: 20px;
-        }
-        input[type="file"] {
-            margin-top: 10px;
-            font-size: 16px;
-        }
-        #categoryFilter {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        #syncButton {
-            background-color: #f39c12;
-            margin-top: 20px;
-        }
-        #syncButton:hover {
-            background-color: #e67e22;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Dynamic Quote Generator</title>
 </head>
 <body>
-    <h1>Dynamic Quote Generator</h1>
-    <select id="categoryFilter" onchange="filterQuotes()">
-        <option value="all">All Categories</option>
-        <!-- Categories will be populated dynamically -->
+  <h1>Dynamic Quote Generator</h1>
+  <div id="quoteDisplay"></div>
+  <button id="newQuote">Show New Quote</button>
+
+  <div>
+    <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
+    <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
+    <button onclick="addQuote()">Add Quote</button>
+  </div>
+
+  <div>
+    <select id="categoryFilter">
+      <option value="all">All Categories</option>
+      <!-- Categories will be dynamically populated here -->
     </select>
-    <div id="quoteDisplay">
-        <p id="quoteText">"Your inspirational quote will appear here."</p>
-        <p id="quoteCategory">Category: <span id="categoryText">General</span></p>
-    </div>
-    <button id="newQuote">Show New Quote</button>
-    <button id="syncButton">Sync with Server</button>
+  </div>
 
-    <div id="quoteForm">
-        <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
-        <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
-        <button onclick="addQuote()">Add Quote</button>
-    </div>
+  <div>
+    <button id="exportQuotes">Export Quotes</button>
+    <input type="file" id="importFile" accept=".json" />
+  </div>
 
-    <button id="exportJson" onclick="exportToJsonFile()">Export Quotes to JSON</button>
-    <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+  <div id="notification"></div>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
